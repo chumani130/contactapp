@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { getContacts} from './api/ContactService';
+import Header from './components/Header'
 
 
 function App() {
@@ -18,13 +19,15 @@ function App() {
     }
   }; 
 
+  const toogleModal = (show) => {console.log('i was clicked'); }
+
   useEffect(() => {
     getAllContacts();
   }, [])
   return (
-    <div>
-    <h1>Hello, World</h1>
-    </div>
+    <>
+    <Header toogleModal={toogleModal} nbOfContacts={data.totalElements} />
+    </>
   );
 }
 
