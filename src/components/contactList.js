@@ -21,7 +21,6 @@ const contactList = ({data, currentPage, getAllContacts }) => {
             &raquo;</Link>
 
        </div> }
-
     </main>
   )
 }
