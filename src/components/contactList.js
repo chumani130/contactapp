@@ -20,7 +20,8 @@ const contactList = ({data, currentPage, getAllContacts }) => {
         <Link onClick={() => getAllContacts(currentPage + 1)} className={data.totalPages === currentPage ? 'disabled' : ''}>
             &raquo;</Link>
 
-       </div> }
+       </div> 
+       }
     </main>
   )
 }
