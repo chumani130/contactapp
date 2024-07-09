@@ -1,12 +1,12 @@
 import React from 'react'
 
-const header = ({ toggleModal, nbOfContacts }) => {
+const Header = ({ toggleModal, nbOfContacts }) => {
   return (
     <header className='header'>
         <div className='container'>
-            <h3>Contact List({nbOfContacts})</h3>
+            <h3>Contact List ({nbOfContacts})</h3>
             <button onClick={() => toggleModal(true)} className='btn'>
-                <i className='bi bi-plus-quare'></i>Add New Contact
+                <i className='bi bi-plus-square'></i>Add New Contact
                 </button>
         </div>
 
@@ -14,4 +14,4 @@ const header = ({ toggleModal, nbOfContacts }) => {
   )
 }
 
-export default header
+export default Header
