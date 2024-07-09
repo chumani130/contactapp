@@ -61,7 +61,7 @@ const ContactDetail = ({ updateContact, updateImage }) => {
 
     useEffect(() => {
         fetchContact(id);
-    }, [id]);
+    }, []);
 
     return (
         <>
