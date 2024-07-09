@@ -2,8 +2,9 @@
 import { useEffect, useRef, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { getContacts, saveContact, udpatePhoto } from './api/ContactService';
-import Header from './components/Header'
-import ContactList from './components/ContactList'
+import Header from './components/Header';
+import ContactDetail from './components/ContactDetail';
+import ContactList from './components/ContactList';
 import { toastError } from './api/ToastService';
 import { ToastContainer } from 'react-toastify';
 import { Routes, Route, Navigate } from 'react-router-dom';
@@ -84,19 +85,20 @@ function App() {
     }
   };
 
-  const toggleModal = (show) => { console.log('i was clicked'); }
+  const toggleModal = (show) => show ? modalRef.current.showModal() : modalRef.current.close()
 
   useEffect(() => {
     getAllContacts();
   }, [])
   return (
     <>
-      <Header toogleModal={toggleModal} nbOfContacts={data.totalElements} />
+      <Header toggleModal={toggleModal} nbOfContacts={data.totalElements} />
       <main className='main'>
         <div className='container'>
           <Routes>
             <Route path='/' element={<Navigate to={'/contacts'} />} />
             <Route path="/contacts" element={<ContactList data={data} currentPage={currentPage} getAllContacts={getAllContacts} />} />
+            <Route path="/contacts/:id" element={<ContactDetail updateContact={updateContact} updateImage={updateImage} />} />
           </Routes>
         </div>
       </main>
